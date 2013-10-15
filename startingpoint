@@ -1,0 +1,62 @@
+package com.MyNewApp;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.*;
+
+public class StartingPoint extends Activity {
+	
+	int counter;
+	Button add;
+	Button quitar;
+	Button reset;
+	TextView display;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    
+        
+        
+    counter =0;
+    add=(Button) findViewById(R.id.agregar);
+    quitar=(Button) findViewById(R.id.quitar);
+    reset=(Button) findViewById(R.id.reset);
+    display =(TextView) findViewById(R.id.textView1);
+    
+add.setOnClickListener(new View.OnClickListener() {
+	public void onClick(View v) {
+		counter ++;
+		
+		display.setText("The count is: " +counter);
+			
+		}
+	});
+ 
+reset.setOnClickListener(new View.OnClickListener() {
+	public void onClick(View v) {
+			counter =0;		
+
+			display.setText("The count is: " +counter);
+			
+		}
+	});
+quitar.setOnClickListener(new View.OnClickListener() {
+	public void onClick(View v) {
+				counter --;
+
+				display.setText("The count is: " +counter);
+	}
+});
+    
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+}
